@@ -1,8 +1,10 @@
 
-# SDCND : Sensor Fusion and Tracking
+# Sensor Fusion and Tracking
+
 This is the project for the second course in the  [Udacity Self-Driving Car Engineer Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) : Sensor Fusion and Tracking. 
 
-In this project, you'll fuse measurements from LiDAR and camera and track vehicles over time. You will be using real-world data from the Waymo Open Dataset, detect objects in 3D point clouds and apply an extended Kalman filter for sensor fusion and tracking.
+In this project, I fuse measurements from LiDAR and camera and track vehicles over time. I use real-world data from the Waymo Open Dataset, detect objects in 3D point clouds and apply an extended Kalman filter for sensor fusion and tracking.
+
 
 <img src="img/img_title_1.jpeg"/>
 
@@ -65,12 +67,9 @@ Also, the project code contains various tasks, which are detailed step-by-step i
 ### Cloning the Project
 In order to create a local copy of the project, please click on "Code" and then "Download ZIP". Alternatively, you may of-course use GitHub Desktop or Git Bash for this purpose. 
 
-### Python
-The project has been written using Python 3.7. Please make sure that your local installation is equal or above this version. 
-
-### Package Requirements
-All dependencies required for the project have been listed in the file `requirements.txt`. You may either install them one-by-one using pip or you can use the following command to install them all at once: 
-`pip3 install -r requirements.txt` 
+### Docker container
+All dependencies required for the project are installed with the docker build. An nvidia GPU is required. To build the container use:
+`docker_build.sh` script.
 
 ### Waymo Open Dataset Reader
 The Waymo Open Dataset Reader is a very convenient toolbox that allows you to access sequences from the Waymo Open Dataset without the need of installing all of the heavy-weight dependencies that come along with the official toolbox. The installation instructions can be found in `tools/waymo_reader/README.md`. 
