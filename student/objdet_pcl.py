@@ -71,6 +71,10 @@ def show_range_image(frame, lidar_name):
     
     # step 3 : set values <0 to zero
     ri[ri<0] = 0.0
+    # focus on +/- 45° around the image center
+    deg90 = int(ri.shape[1] / 4)
+    ri_center = int(ri.shape[1] / 2)
+    ri = ri[:, ri_center-deg90: ri_center+deg90]
 
     # step 4 : map the range channel onto an 8-bit scale and make sure that the full range of values is appropriately considered
     ri_range = ri[:,:,0]
