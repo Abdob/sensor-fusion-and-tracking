@@ -202,7 +202,7 @@ def detect_objects(input_bev_maps, model, configs):
             detections = decode(outputs['hm_cen'], outputs['cen_offset'], outputs['direction'], outputs['z_coor'], outputs['dim'])
             detections = detections.cpu().numpy()
             detections = post_processing(detections, configs)
-            print(detections)
+            #print(detections)
             #######
             ####### ID_S3_EX1-5 END #######     
 
@@ -215,12 +215,19 @@ def detect_objects(input_bev_maps, model, configs):
     objects = [] 
 
     ## step 1 : check whether there are any detections
-
+    if(1):            
         ## step 2 : loop over all detections
-        
+        for detection in detections[0][1]:
+            class_id, y, x, z, h, w, l, yaw = detection
+
             ## step 3 : perform the conversion using the limits for x, y and z set in the configs structure
+            x = x / configs.bev_height * (configs.lim_x[1] - configs.lim_x[0])
+            y = y / configs.bev_width * (configs.lim_y[1] - configs.lim_y[0]) - (configs.lim_y[1] - configs.lim_y[0])/2
+            w = w / configs.bev_width * (configs.lim_y[1] - configs.lim_y[0]) 
+            l = l / configs.bev_height * (configs.lim_x[1] - configs.lim_x[0])
         
             ## step 4 : append the current object to the 'objects' array
+            objects.append([1, x, y, z, h, w, l, yaw])
         
     #######
     ####### ID_S3_EX2 START #######   
