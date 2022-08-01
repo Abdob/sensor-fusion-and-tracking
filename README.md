@@ -128,5 +128,23 @@ Parts of this project are based on the following repositories:
 - [Complex-YOLO: Real-time 3D Object Detection on Point Clouds](https://github.com/maudzung/Complex-YOLOv4-Pytorch)
 
 
+## Identifying vehicle features that appear as a stable feature on most vehicles and describing them briefly.
+
+Most vehicles captured in the point cloud resemble a sedan. Therefore the shape of the vehicle is apparent in the point cloud.
+
+The point captures the shape of the vehicles including the left and right external mirrors.
+
+Sometimes the front and back windshields are also apparent which seems to be due to the lidar's weak reflection across the windows.
+
+Looking at the vehicles from the side, the windows are also apparent as well as the tires. The front and rear bumper shapes and well as the top and sides of the vehicle appear to be the most stable features
+
+<img src="img/pic1.png"/>
+<img src="img/pic2.png"/>
+<img src="img/pic3.png"/>
+<img src="img/pic4.png"/>
+<img src="img/pic5.png"/>
+<img src="img/pic6.png"/>
+
+
 ## License
 [License](LICENSE.md)
