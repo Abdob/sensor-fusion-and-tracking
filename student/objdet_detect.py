@@ -215,9 +215,12 @@ def detect_objects(input_bev_maps, model, configs):
     objects = [] 
 
     ## step 1 : check whether there are any detections
+    if('fpn_resnet' in configs.arch):
+        detections = detections[0][1]
+
     if(1):            
         ## step 2 : loop over all detections
-        for detection in detections[0][1]:
+        for detection in detections:
             class_id, y, x, z, h, w, l, yaw = detection
 
             ## step 3 : perform the conversion using the limits for x, y and z set in the configs structure
@@ -228,7 +231,6 @@ def detect_objects(input_bev_maps, model, configs):
         
             ## step 4 : append the current object to the 'objects' array
             objects.append([1, x, y, z, h, w, l, yaw])
-        
     #######
     ####### ID_S3_EX2 START #######   
     
