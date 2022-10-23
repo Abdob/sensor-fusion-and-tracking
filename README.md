@@ -151,14 +151,25 @@ Looking at the vehicles from the side, the windows are also apparent as well as 
 The first tracking step is EKF. This was single object tracking but was the foundation of the multi-object tracking. Here we learned how to construct the system matrix and the covariance matrix. Then we performed updates on the system state according to the lidar measurements. We acheived our RMSE goals indicating the tracking is functional.
 <img src="img/track_part1.png"/>
 
+The second step was track management. This step still assumes single objects, but is required for multiple objects. Track managment starts from initializing a track and setting a state for the track, if the system is confident is detected a vehicle over a sequence of images it will place the vehicle is a confirmed state. If the system doesn't consistently detect the vehicle over successive frames it may place the vehicle in the "tentative" state. Here we were able to observe an object get detected and detection gets increasingly confident over a few frames.
 <img src="img/track_part2.png"/>
+
+For Multiobject tracking we start with data association and mapping each measurement with the nearest neighbor track. We successfully tracked multiple object with low RMSE.
 <img src="img/track_part3.png"/>
+
+Lastly the camera-lidar sensor fusion allowed us to add redudancy to our tracking. Since Lidar is good at detecting volume of objects camera is good at knowing what those objects are. We did see improvements in avoiding false detections with camera. 
 <img src="img/track_part4.png"/>
+
 -Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
+The amount of improvements we seen is less than expected. In theory the camera is a supplemental sensor which should be certain of false detections. In practice we were still seeing false detections which is due to a lack of tuning.
 
 -Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
+The challenges the sensor fusion system will face is proper calibration and syncrhonization of the sensors. The project did face these challenges as the tracking isn't precise.
 
 -Can you think of ways to improve your tracking results in the future?
+Tracking can be improved by tuning the parameters more and better calibrating the sensors.
+
+The most difficult part of the project is the first step. The EKF is at the heart of the tracking and is the most complex part. It takes take to be familiar with the linear algebra behind the EKF.
 
 ## Stand out
 Fine-tune your parameterization and see how low an RMSE you can achieve! One idea would be to apply the standard deviation values for lidar that you found in the mid-term project. The parameters in misc/params.py should enable a first running tracking, but there is still a lot of room for improvement through parameter tuning!
