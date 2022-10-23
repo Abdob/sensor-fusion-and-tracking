@@ -5,7 +5,7 @@ This is the project for the second course in the  [Udacity Self-Driving Car Engi
 
 In this project, I fuse measurements from LiDAR and camera and track vehicles over time. I use real-world data from the Waymo Open Dataset, detect objects in 3D point clouds and apply an extended Kalman filter for sensor fusion and tracking.
 
-
+<img src="img/my_tracking_results.gif"/>
 <img src="img/img_title_1.jpeg"/>
 
 The project consists of two major parts: 
