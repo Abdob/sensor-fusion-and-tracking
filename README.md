@@ -147,7 +147,10 @@ Looking at the vehicles from the side, the windows are also apparent as well as 
 
 ##  Tracking Final Write up
 -Write a short recap of the four tracking steps and what you implemented there (EKF, track management, data association, camera-lidar sensor fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
+
+The first tracking step is EKF. This was single object tracking but was the foundation of the multi-object tracking. Here we learned how to construct the system matrix and the covariance matrix. Then we performed updates on the system state according to the lidar measurements. We acheived our RMSE goals indicating the tracking is functional.
 <img src="img/track_part1.png"/>
+
 <img src="img/track_part2.png"/>
 <img src="img/track_part3.png"/>
 <img src="img/track_part4.png"/>
