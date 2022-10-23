@@ -141,13 +141,12 @@ class Trackmanagement:
                     track.score -= 1./params.window
         
         for track in self.track_list:
-            # delete old tracks   
-            if track.score <= params.delete_threshold:
+            # delete old tracks if covariance of px or py bigger than this
+            if track.score <= params.delete_threshold and track.P[0, 0] >= params.max_P :
                 self.delete_track(track)
-            # delete track if covariance of px or py bigger than this
-            if track.P[0, 0] >= params.max_P or track.P[1, 1] >= params.max_P:
+            elif track.score <= params.delete_threshold and track.P[1, 1] >= params.max_P:
                 self.delete_track(track)
-
+                
         ############
         # END student code
         ############ 
