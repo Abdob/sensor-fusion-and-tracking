@@ -147,7 +147,10 @@ Looking at the vehicles from the side, the windows are also apparent as well as 
 
 ##  Tracking Final Write up
 -Write a short recap of the four tracking steps and what you implemented there (EKF, track management, data association, camera-lidar sensor fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
-
+<img src="img/track_part1.png"/>
+<img src="img/track_part2.png"/>
+<img src="img/track_part3.png"/>
+<img src="img/track_part4.png"/>
 -Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
 
 -Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
