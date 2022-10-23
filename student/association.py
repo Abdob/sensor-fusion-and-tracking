@@ -126,6 +126,7 @@ class Association:
         gamma = KF.gamma(track, meas) #meas.z - H*track.x
         S = H*track.P*H.transpose() + meas.R
         MHD = gamma.transpose()*np.linalg.inv(S)*gamma # Mahalanobis distance formula
+        MHD = np.sqrt(MHD)
         return MHD
         
         ############
